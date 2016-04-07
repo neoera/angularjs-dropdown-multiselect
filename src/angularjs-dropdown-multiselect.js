@@ -194,7 +194,11 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                                 itemsText = itemsText.slice(0, $scope.settings.smartButtonMaxItems);
                                 itemsText.push('...');
                             }
-
+                            
+                            if (itemsText.length == 1 && itemsText[0].length > 24) {
+                                itemsText[0] = itemsText[0].substring(0, 23);
+                            }
+                            
                             return itemsText.join(', ');
                         } else {
                             var totalSelected;
